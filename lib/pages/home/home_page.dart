@@ -21,11 +21,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: PageHeader(
-          leftIcon: Icons.settings,
-          rightIcon: Icons.notifications_outlined,
-          title: 'HOME',
-        ),
+        title:Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      AppIcon(
+        icon: Icons.settings,
+        backgroundColor: Colors.grey.shade400,
+      ),
+      Text(
+        "HOME",
+        style: TextStyle(color: Colors.black),
+      ),
+      AppIcon(
+        icon: Icons.notifications_outlined,
+        backgroundColor: Colors.amber,
+        iconSize: 20,
+      ),
+    ]),
         backgroundColor: Colors.white,
       ),
       body: Column(
