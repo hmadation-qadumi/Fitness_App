@@ -26,7 +26,7 @@ class FeaturedWorkoutWidget extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(15),
         child: Stack(children: [
           Container(
             height: 200,

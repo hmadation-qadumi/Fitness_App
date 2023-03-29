@@ -1,6 +1,4 @@
-import 'package:fitness_app/pages/home/home_page.dart';
-import 'package:fitness_app/pages/profile/profile_page.dart';
-import 'package:fitness_app/pages/workout/workout_overview.dart';
+import 'package:fitness_app/pages/workout/workout.dart';
 import 'package:fitness_app/widget_tree.dart';
 import 'package:flutter/material.dart';
 

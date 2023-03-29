@@ -1,5 +1,6 @@
 import 'package:fitness_app/widgets/app_icon.dart';
 import 'package:fitness_app/widgets/featured_workout_widget.dart';
+import 'package:fitness_app/widgets/page_header.dart';
 import 'package:fitness_app/widgets/workout_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -13,27 +14,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  PageController pageController = PageController(viewportFraction: 1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          AppIcon(
-            icon: Icons.settings,
-            backgroundColor: Colors.grey.shade400,
-          ),
-          const Text(
-            'HOME',
-            style: TextStyle(color: Colors.black),
-          ),
-          const AppIcon(
-            icon: Icons.notifications_outlined,
-            backgroundColor: Colors.amber,
-            iconSize: 20,
-          ),
-        ]),
+        title: PageHeader(
+          leftIcon: Icons.settings,
+          rightIcon: Icons.notifications_outlined,
+          title: 'HOME',
+        ),
         backgroundColor: Colors.white,
       ),
       body: Column(
@@ -45,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   'Featured Workouts',
@@ -56,9 +48,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   height: 220,
-                  child: ListView.builder(
+                  child: PageView.builder(
+                      controller: pageController,
                       itemCount: 5,
-                      scrollDirection: Axis.horizontal,
                       itemBuilder: ((context, index) {
                         return const FeaturedWorkoutWidget(
                             imgURL: 'assets/images/workout_1.jpg');
