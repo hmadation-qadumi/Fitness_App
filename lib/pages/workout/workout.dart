@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../widgets/app_icon.dart';
 
@@ -23,7 +22,7 @@ class _WorkoutState extends State<Workout> {
             //Exercise Video
             Container(
               height: 330,
-              color: Colors.red,
+              color: Colors.deepPurpleAccent,
             ),
             Positioned(
               right: 0,
@@ -60,27 +59,90 @@ class _WorkoutState extends State<Workout> {
               right: 0,
               left: 0,
               child: Container(
-                height: 360,
+                height: 380,
+                padding: EdgeInsets.fromLTRB(30, 30, 30, 65),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(35),
                     ),
                     color: Colors.grey[850]),
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Scored time'),
-                    Text('02:31'),
-                    Row(
-                      children: [Text('20x'), Text('Mountain Climbers')],
+                    Text('Scored time', style: TextStyle(color: Colors.grey)),
+                    Text('02:31',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 50)),
+                    SizedBox(
+                      height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('20x',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text('Mountain Climbers',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         AppIcon(
                           icon: Icons.pause,
                           iconColor: Colors.white,
                           backgroundColor: Colors.grey.shade600,
+                          iconSize: 25,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 50,
+                          width: 100,
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.deepPurple),
+                          child: Center(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Round1',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        StepProgressIndicator(
+                          totalSteps: 10,
+                          currentStep: 3,
+                          selectedColor: Colors.amber,
+                        ),
                       ],
                     )
                   ],
@@ -92,12 +154,12 @@ class _WorkoutState extends State<Workout> {
               right: 0,
               left: 0,
               child: Container(
-                height: 180,
+                height: 150,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(35),
                     ),
-                    color: Colors.amber),
+                    color: Colors.white),
               ),
             ),
           ],
